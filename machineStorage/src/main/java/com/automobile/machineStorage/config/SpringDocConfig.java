@@ -10,8 +10,15 @@ import org.springframework.context.annotation.Configuration;
 @OpenAPIDefinition
 @Configuration
 public class SpringDocConfig {
+
     @Bean
     public OpenAPI baseOpenAPI() {
-        return new OpenAPI().info(new Info().title("AutoMobile Rest API").version("1.0.0").description("AutoMobile Rest API"));
+
+        return new OpenAPI()
+                .info(new Info()
+                .title("AutoMobile Rest API")
+                .version("1.0.0")
+                .description("AutoMobile Rest API"));
     }
+
 }

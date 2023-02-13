@@ -27,5 +27,5 @@ public class Auto {
     private Double price;
 
     private String color;
-    private String SecretField;
+
 }

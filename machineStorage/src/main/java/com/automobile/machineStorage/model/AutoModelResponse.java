@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AutoModelOut {
+public class AutoModelResponse {
     private Long id;
     private String brand;
     private String model;
@@ -22,8 +22,8 @@ public class AutoModelOut {
 
     private String color;
 
-    public static AutoModelOut fromEntity(Auto entity) {
-        return AutoModelOut.builder()
+    public static AutoModelResponse fromEntity(Auto entity) {
+        return AutoModelResponse.builder()
                 .id(entity.getId())
                 .brand(entity.getBrand())
                 .model(entity.getModel())
@@ -35,7 +35,7 @@ public class AutoModelOut {
                 .build();
     }
 
-    public static Auto toEntity(AutoModelOut car) {
+    public static Auto toEntity(AutoModelResponse car) {
         return Auto.builder()
                 .id(car.getId())
                 .brand(car.getBrand())
