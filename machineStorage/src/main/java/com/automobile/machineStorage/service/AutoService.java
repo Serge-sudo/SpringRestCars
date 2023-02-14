@@ -59,27 +59,15 @@ public class AutoService {
     public AutoModelResponse updateAuto(Long id, AutoModelRequest carDetails) throws ResourceNotFoundException {
         Auto car = autoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Auto", "id", id));
-        if (carDetails.getBrand() != null) {
-            car.setBrand(carDetails.getBrand());
-        }
-        if (carDetails.getModel() != null) {
-            car.setModel(carDetails.getModel());
-        }
-        if (carDetails.getYear() != null) {
-            car.setYear(carDetails.getYear());
-        }
-        if (carDetails.getEngineType() != null) {
-            car.setEngineType(carDetails.getEngineType());
-        }
-        if (carDetails.getTransmission() != null) {
-            car.setTransmission(carDetails.getTransmission());
-        }
-        if (carDetails.getPrice() != null) {
-            car.setPrice(carDetails.getPrice());
-        }
-        if (carDetails.getColor() != null) {
-            car.setColor(carDetails.getColor());
-        }
+
+        if (carDetails.getBrand() != null) car.setBrand(carDetails.getBrand());
+        if (carDetails.getModel() != null) car.setModel(carDetails.getModel());
+        if (carDetails.getYear() != null) car.setYear(carDetails.getYear());
+        if (carDetails.getEngineType() != null) car.setEngineType(carDetails.getEngineType());
+        if (carDetails.getTransmission() != null) car.setTransmission(carDetails.getTransmission());
+        if (carDetails.getPrice() != null) car.setPrice(carDetails.getPrice());
+        if (carDetails.getColor() != null) car.setColor(carDetails.getColor());
+
 
         Auto updatedAuto = autoRepository.save(car);
         return AutoModelResponse.fromEntity(updatedAuto);
@@ -95,16 +83,6 @@ public class AutoService {
     }
 
     public Page<AutoModelResponse> getAllAutosByFilter(String brand, String model, Integer startYear, Integer endYear, Double startPrice, Double endPrice, String color, String transmission, String engineType, int page, int size) {
-        if (brand == null) brand = "";
-        if (model == null) model = "";
-        if (color == null) color = "";
-        if (transmission == null) transmission = "";
-        if (engineType == null) engineType = "";
-        if (startYear == null) startYear = Integer.MIN_VALUE;
-        if (endYear == null) endYear = Integer.MAX_VALUE;
-        if (startPrice == null) startPrice = Double.MIN_VALUE;
-        if (endPrice == null) endPrice = Double.MAX_VALUE;
-
         if (page < 0) {
             throw new IllegalParameterException("Page index must not be negative.");
         }

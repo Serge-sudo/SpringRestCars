@@ -1,10 +1,7 @@
 package com.automobile.machineStorage.model;
 
 import com.automobile.machineStorage.entity.Auto;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
